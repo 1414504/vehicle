@@ -22,7 +22,7 @@
                 <div class="col-md-10 border min-height">
                     
                     <?php
-                            $con = new mysqli("localhost", "root", "root", "vehicle");
+                    $con = new mysqli("ap-cdbr-azure-east-c.cloudapp.net", "b1236d751c9714", "41e55854", "acsm_dd5dc4ba52b59d7");
        
                             $sql = "select * from vehicleTable";
                             $result = $con->query($sql);
