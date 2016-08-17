@@ -12,6 +12,6 @@ if(isset($_POST['save_vehicle']))
     
     $con->query($sql);
     $con->close();
-    $message = "<h3>Data saved successfully</h3>";
+    $message = "<h3>Data saved successfully!</h3>";
     
 }//end if statement
