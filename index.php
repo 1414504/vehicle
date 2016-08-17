@@ -1,76 +1,38 @@
-<?php
-if (isset($_GET['save_vehicle'])) {
-    $vehicle_name1 = $_GET['vehicle_name'];
-    $vehicle_model1 = $_GET['vehicle_model'];
-    $vehicle_menufecturer1 = $_GET['vehicle_menufecturer'];
-    
-    $sql = "insert into vehicle_details (vehicle_name,vehicle_model,vehicle_menufecturer) values ('$vehicle_name1', '$vehicle_model1', '$vehicle_menufecturer1')";
-    
-    $conn = new mysqli("localhost", "root", "root", "vehicle");
-    $conn->query($sql);
-    $conn->close();
-   
-    
-}
-
-
-?>
-
-
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title></title>
-    </head>
+    
+<?php include './head.php'; ?>
+    
     <body>
         
-        <form>
-            <label>Vehicle Name</label>
-            <input type="text" name="vehicle_name"><br>
-            <label>Vehicle Model</label>
-            <input type="text" name="vehicle_model"><br>
-            <label>Vehicle Menufecturer </label>
-            <input type="text" name="vehicle_menufecturer"><br>
-            <input type="submit" name="save_vehicle" value="Submit">
-            
-            
-            
-        </form>
-        <?php
-        $sql = "select * from vehicle_details";
-        
-        $conn = new mysqli("localhost", "root", "root", "vehicle");
-        
-       $result = $conn->query($sql);
-       
-       $conn->close();
-       
-       if(mysqli_num_rows($result)>0){
+        <div class="container border">
+
+            <?php include './header.php'; ?>           
            
-           while($row = mysqli_fetch_array($result)){
-               
-               echo 'vehicle name:' . $row['vehicle_name'] .'<br>';
-                echo 'vehicle model:' . $row['vehicle_model'] .'<br>';
-                 echo 'vehicle menufecturer:' . $row['vehicle_menufecturer'] .'<br>'. '<br>'. '<br>';
-               
-               
-               
-           }
-           
-       }
-        
-        
-        
-        
-        ?>
-        
- 
-       
+            <div class="row">
+                <div class="col-md-2 min-height">
+                    
+                   <?php
+                   include './navbar.php';
+                   ?>
+                    </div>                   
+                
+                <div class="col-md-10 border min-height">
+                    <h2>What is Lorem Ipsum?</h2>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+
+                    <h2>Why do we use it?</h2>
+                    It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. <br>The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+
+<h2>Where does it come from?</h2>
+Contrary to popular belief, Lorem Ipsum is not simply random text.  Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.
+                </div>
+            </div>
+            
+            <?php include 'footer.php'; ?>
+            
+            
+            </div>
+
     </body>
 </html>
